@@ -1,8 +1,52 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="hero-section text-center fade-in">
+    <h1 class="display-5 fw-bold mb-3">
+        <i class="bi bi-people-fill me-2"></i>Employee Management System
+    </h1>
+    <p class="lead mb-4">A simple and efficient tool to manage your workforce. Add, edit, and track employee records with ease.</p>
+    @if (User.Identity?.IsAuthenticated != true)
+    {
+        <a asp-controller="Account" asp-action="Login" class="btn btn-light btn-lg px-4">
+            <i class="bi bi-box-arrow-in-right me-2"></i>Login to Get Started
+        </a>
+    }
+    else
+    {
+        <a asp-controller="Employee" asp-action="Index" class="btn btn-light btn-lg px-4">
+            <i class="bi bi-people me-2"></i>View Employees
+        </a>
+    }
+</div>
+
+<div class="row g-4 fade-in">
+    <div class="col-md-4">
+        <div class="card feature-card h-100">
+            <div class="card-body">
+                <i class="bi bi-person-plus-fill display-4 mb-3"></i>
+                <h5 class="card-title fw-bold">Add Employees</h5>
+                <p class="card-text text-muted">Quickly add new employee records with all essential details including name, position, and salary.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card feature-card h-100">
+            <div class="card-body">
+                <i class="bi bi-pencil-square display-4 mb-3"></i>
+                <h5 class="card-title fw-bold">Edit Records</h5>
+                <p class="card-text text-muted">Update employee information anytime. Keep your records accurate and up-to-date effortlessly.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card feature-card h-100">
+            <div class="card-body">
+                <i class="bi bi-shield-lock-fill display-4 mb-3"></i>
+                <h5 class="card-title fw-bold">Secure Access</h5>
+                <p class="card-text text-muted">Only authorized administrators can access and manage employee data through secure authentication.</p>
+            </div>
+        </div>
+    </div>
 </div>
