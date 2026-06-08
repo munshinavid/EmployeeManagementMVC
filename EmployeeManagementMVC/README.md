@@ -2,6 +2,20 @@
 
 A clean and professional ASP.NET Core MVC application for managing employee records with admin authentication.
 
+## Screenshots
+
+| Home Page | Login Page |
+|:-:|:-:|
+| ![Home Page](screenshots/home-page.png) | ![Login Page](screenshots/login-page.png) |
+
+| Employee List | Create Employee |
+|:-:|:-:|
+| ![Employee List](screenshots/employee-list.png) | ![Create Employee](screenshots/create-employee.png) |
+
+| Edit Employee | Delete Confirmation |
+|:-:|:-:|
+| ![Edit Employee](screenshots/edit-employee.png) | ![Delete Confirmation](screenshots/delete-confirmation.png) |
+
 ## Features
 
 - **Employee CRUD Operations** — Create, Read, Update, and Delete employee records
@@ -72,13 +86,13 @@ The application will be available at `https://localhost:5001` or `http://localho
 
 The following employees are seeded for demonstration:
 
-| Name            | Position               | Salary    |
-|-----------------|------------------------|-----------|
-| Navid Munshi    | Software Engineer      | $75,000   |
-| Rafiq Ahmed     | Project Manager        | $95,000   |
-| Fatima Rahman   | UI/UX Designer         | $65,000   |
-| Kamal Hossain   | Database Administrator | $80,000   |
-| Nusrat Jahan    | QA Engineer            | $60,000   |
+| Name            | Position               | Salary     |
+|-----------------|------------------------|------------|
+| Navid Munshi    | Software Engineer      | ৳75,000    |
+| Rafiq Ahmed     | Project Manager        | ৳95,000    |
+| Fatima Rahman   | UI/UX Designer         | ৳65,000    |
+| Kamal Hossain   | Database Administrator | ৳80,000    |
+| Nusrat Jahan    | QA Engineer            | ৳60,000    |
 
 ## Project Structure
 
@@ -147,13 +161,6 @@ EmployeeManagementMVC/
 | Password | nvarchar(100) | Required                     |
 | Email    | nvarchar(100) | Required, Valid email format  |
 
-## Screenshots
+## License
 
-*(Add screenshots of the application here)*
-
-- Home Page
-- Login Page
-- Employee List
-- Create Employee
-- Edit Employee
-- Delete Confirmation
+This project is for demonstration purposes.

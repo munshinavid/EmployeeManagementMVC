@@ -2,51 +2,116 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="hero-section text-center fade-in">
-    <h1 class="display-5 fw-bold mb-3">
-        <i class="bi bi-people-fill me-2"></i>Employee Management System
-    </h1>
-    <p class="lead mb-4">A simple and efficient tool to manage your workforce. Add, edit, and track employee records with ease.</p>
-    @if (User.Identity?.IsAuthenticated != true)
-    {
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="fade-in">
+        <div class="mb-4">
+            <h2 class="fw-bold mb-1">
+                <i class="bi bi-speedometer2 me-2"></i>Dashboard
+            </h2>
+            <p class="text-muted mb-0">Welcome back, @User.Identity.Name! Here's your workforce overview.</p>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center py-4">
+                        <i class="bi bi-people-fill display-4 text-primary mb-2"></i>
+                        <h2 class="fw-bold mb-0">@ViewBag.TotalEmployees</h2>
+                        <p class="text-muted mb-0">Total Employees</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center py-4">
+                        <i class="bi bi-cash-stack display-4 text-success mb-2"></i>
+                        <h2 class="fw-bold mb-0">৳@(((decimal)ViewBag.TotalSalary).ToString("N0"))</h2>
+                        <p class="text-muted mb-0">Total Salary</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body text-center py-4">
+                        <i class="bi bi-briefcase-fill display-4 text-warning mb-2"></i>
+                        <h2 class="fw-bold mb-0">@ViewBag.Positions</h2>
+                        <p class="text-muted mb-0">Positions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a asp-controller="Employee" asp-action="Index" class="card feature-card h-100 text-decoration-none text-dark">
+                    <div class="card-body">
+                        <i class="bi bi-people display-4 mb-3"></i>
+                        <h5 class="card-title fw-bold">View Employees</h5>
+                        <p class="card-text text-muted">Browse and manage all employee records in a detailed list view.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="Employee" asp-action="Create" class="card feature-card h-100 text-decoration-none text-dark">
+                    <div class="card-body">
+                        <i class="bi bi-person-plus-fill display-4 mb-3"></i>
+                        <h5 class="card-title fw-bold">Add Employee</h5>
+                        <p class="card-text text-muted">Quickly add new employee records with name, position, and salary.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="Admin" asp-action="Index" class="card feature-card h-100 text-decoration-none text-dark">
+                    <div class="card-body">
+                        <i class="bi bi-shield-lock-fill display-4 mb-3"></i>
+                        <h5 class="card-title fw-bold">Manage Admins</h5>
+                        <p class="card-text text-muted">View and manage administrator accounts and access control.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="hero-section text-center fade-in">
+        <h1 class="display-5 fw-bold mb-3">
+            <i class="bi bi-people-fill me-2"></i>Employee Management System
+        </h1>
+        <p class="lead mb-4">A simple and efficient tool to manage your workforce. Add, edit, and track employee records with ease.</p>
         <a asp-controller="Account" asp-action="Login" class="btn btn-light btn-lg px-4">
             <i class="bi bi-box-arrow-in-right me-2"></i>Login to Get Started
         </a>
-    }
-    else
-    {
-        <a asp-controller="Employee" asp-action="Index" class="btn btn-light btn-lg px-4">
-            <i class="bi bi-people me-2"></i>View Employees
-        </a>
-    }
-</div>
+    </div>
 
-<div class="row g-4 fade-in">
-    <div class="col-md-4">
-        <div class="card feature-card h-100">
-            <div class="card-body">
-                <i class="bi bi-person-plus-fill display-4 mb-3"></i>
-                <h5 class="card-title fw-bold">Add Employees</h5>
-                <p class="card-text text-muted">Quickly add new employee records with all essential details including name, position, and salary.</p>
+    <div class="row g-4 fade-in">
+        <div class="col-md-4">
+            <div class="card feature-card h-100">
+                <div class="card-body">
+                    <i class="bi bi-person-plus-fill display-4 mb-3"></i>
+                    <h5 class="card-title fw-bold">Add Employees</h5>
+                    <p class="card-text text-muted">Quickly add new employee records with all essential details including name, position, and salary.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card feature-card h-100">
+                <div class="card-body">
+                    <i class="bi bi-pencil-square display-4 mb-3"></i>
+                    <h5 class="card-title fw-bold">Edit Records</h5>
+                    <p class="card-text text-muted">Update employee information anytime. Keep your records accurate and up-to-date effortlessly.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card feature-card h-100">
+                <div class="card-body">
+                    <i class="bi bi-shield-lock-fill display-4 mb-3"></i>
+                    <h5 class="card-title fw-bold">Secure Access</h5>
+                    <p class="card-text text-muted">Only authorized administrators can access and manage employee data through secure authentication.</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card feature-card h-100">
-            <div class="card-body">
-                <i class="bi bi-pencil-square display-4 mb-3"></i>
-                <h5 class="card-title fw-bold">Edit Records</h5>
-                <p class="card-text text-muted">Update employee information anytime. Keep your records accurate and up-to-date effortlessly.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card feature-card h-100">
-            <div class="card-body">
-                <i class="bi bi-shield-lock-fill display-4 mb-3"></i>
-                <h5 class="card-title fw-bold">Secure Access</h5>
-                <p class="card-text text-muted">Only authorized administrators can access and manage employee data through secure authentication.</p>
-            </div>
-        </div>
-    </div>
-</div>
+}

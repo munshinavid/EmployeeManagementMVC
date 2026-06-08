@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using EmployeeManagementMVC.Data;
 using EmployeeManagementMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,17 +8,22 @@ namespace EmployeeManagementMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AppDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, AppDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            // Redirect authenticated users to Employee list
             if (User.Identity?.IsAuthenticated == true)
-                return RedirectToAction("Index", "Employee");
+            {
+                ViewBag.TotalEmployees = _context.Employees.Count();
+                ViewBag.TotalSalary = _context.Employees.Sum(e => e.Salary);
+                ViewBag.Positions = _context.Employees.Select(e => e.Position).Distinct().Count();
+            }
 
             return View();
         }
