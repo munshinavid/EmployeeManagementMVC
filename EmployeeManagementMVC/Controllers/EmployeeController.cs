@@ -1,10 +1,12 @@
 using EmployeeManagementMVC.Data;
 using EmployeeManagementMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagementMVC.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         private readonly AppDbContext _context;

@@ -15,6 +15,10 @@ namespace EmployeeManagementMVC.Controllers
 
         public IActionResult Index()
         {
+            // Redirect authenticated users to Employee list
+            if (User.Identity?.IsAuthenticated == true)
+                return RedirectToAction("Index", "Employee");
+
             return View();
         }
 
