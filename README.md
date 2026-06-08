@@ -6,15 +6,15 @@ A clean and professional ASP.NET Core MVC application for managing employee reco
 
 | Home Page | Login Page |
 |:-:|:-:|
-| ![Home Page](screenshots/home-page.png) | ![Login Page](screenshots/login-page.png) |
+| ![Home Page](screenshots/home.png) | ![Login Page](screenshots/login.png) |
 
 | Employee List | Create Employee |
 |:-:|:-:|
-| ![Employee List](screenshots/employee-list.png) | ![Create Employee](screenshots/create-employee.png) |
+| ![Employee List](screenshots/employee-list.png) | ![Create Employee](screenshots/create-emp.png) |
 
 | Edit Employee | Delete Confirmation |
 |:-:|:-:|
-| ![Edit Employee](screenshots/edit-employee.png) | ![Delete Confirmation](screenshots/delete-confirmation.png) |
+| ![Edit Employee](screenshots/edit.png) | ![Delete Confirmation](screenshots/delete.png) |
 
 ## Features
 
