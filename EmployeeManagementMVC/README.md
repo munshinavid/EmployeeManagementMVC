@@ -61,13 +61,24 @@ The application will be available at `https://localhost:5001` or `http://localho
 
 ## Default Admin Credentials
 
-| Field    | Value              |
-|----------|--------------------|
-| Username | `admin`            |
-| Password | `admin123`         |
-| Email    | `admin@company.com`|
+| Username  | Password     | Email                |
+|-----------|--------------|----------------------|
+| `admin`   | `admin123`   | `admin@company.com`  |
+| `manager` | `manager123` | `manager@company.com`|
 
 > **Note:** These credentials are seeded automatically when the database is created.
+
+## Sample Employee Data
+
+The following employees are seeded for demonstration:
+
+| Name            | Position               | Salary    |
+|-----------------|------------------------|-----------|
+| Navid Munshi    | Software Engineer      | $75,000   |
+| Rafiq Ahmed     | Project Manager        | $95,000   |
+| Fatima Rahman   | UI/UX Designer         | $65,000   |
+| Kamal Hossain   | Database Administrator | $80,000   |
+| Nusrat Jahan    | QA Engineer            | $60,000   |
 
 ## Project Structure
 
@@ -76,6 +87,7 @@ EmployeeManagementMVC/
 ├── Controllers/
 │   ├── HomeController.cs          # Home page
 │   ├── EmployeeController.cs      # Employee CRUD operations
+│   ├── AdminController.cs         # Admin CRUD operations
 │   └── AccountController.cs       # Login/Logout authentication
 ├── Data/
 │   └── AppDbContext.cs            # Entity Framework DbContext
@@ -93,6 +105,12 @@ EmployeeManagementMVC/
 │   │   ├── Create.cshtml          # Create employee form
 │   │   ├── Edit.cshtml            # Edit employee form
 │   │   ├── Details.cshtml         # Employee details
+│   │   └── Delete.cshtml          # Delete confirmation
+│   ├── Admin/
+│   │   ├── Index.cshtml           # Admin list
+│   │   ├── Create.cshtml          # Create admin form
+│   │   ├── Edit.cshtml            # Edit admin form
+│   │   ├── Details.cshtml         # Admin details
 │   │   └── Delete.cshtml          # Delete confirmation
 │   ├── Account/
 │   │   ├── Login.cshtml           # Login page
