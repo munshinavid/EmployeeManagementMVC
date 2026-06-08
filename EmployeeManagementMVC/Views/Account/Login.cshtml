@@ -1,0 +1,44 @@
+@model EmployeeManagementMVC.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="login-container fade-in">
+    <div class="card login-card shadow">
+        <div class="card-header">
+            <i class="bi bi-shield-lock-fill display-6 text-white"></i>
+            <h3 class="text-white mt-2 mb-0">Admin Login</h3>
+            <p class="text-white-50 mb-0 mt-1">Sign in to manage employees</p>
+        </div>
+        <div class="card-body">
+            <form asp-action="Login" asp-controller="Account" method="post">
+                <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Username" class="form-label">
+                        <i class="bi bi-person me-1"></i>Username
+                    </label>
+                    <input asp-for="Username" class="form-control form-control-lg" placeholder="Enter your username" autofocus />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Password" class="form-label">
+                        <i class="bi bi-lock me-1"></i>Password
+                    </label>
+                    <input asp-for="Password" class="form-control form-control-lg" placeholder="Enter your password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-lg w-100">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
