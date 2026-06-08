@@ -10,7 +10,7 @@ A clean and professional ASP.NET Core MVC application for managing employee reco
 
 | Employee List | Create Employee |
 |:-:|:-:|
-| ![Employee List](screenshots/employee-list.png) | ![Create Employee](screenshots/create-emp.png) |
+| ![Employee List](screenshots/employee-list.png) | ![Create Employee](screenshots/create-employee.png) |
 
 | Edit Employee | Delete Confirmation |
 |:-:|:-:|
